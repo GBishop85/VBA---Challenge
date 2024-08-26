@@ -41,11 +41,11 @@ Sub MultipleYearStockData()
    'Set the ticker name
               tickername = ws.Cells(i, 1).Value
 
-              'volume of trade
-              tickervolume = tickervolume + ws.Cells(i, 7).Value
+    'volume of trade
+     tickervolume = tickervolume + ws.Cells(i, 7).Value
 
-              'Print the ticker name in the summary table
-              ws.Range("I" & summary_ticker_row).Value = tickername
+     'Print the ticker name in the summary table
+      ws.Range("I" & summary_ticker_row).Value = tickername
 
               'Print the trade volume for each ticker in the summary table
               ws.Range("L" & summary_ticker_row).Value = tickervolume
@@ -109,7 +109,6 @@ Sub MultipleYearStockData()
         
         Next i
 
-    'Highlight the stock price changes
     'First label the cells according to the sample .png provided in the assignment
 
         ws.Cells(2, 15).Value = "Greatest % Increase"
@@ -121,13 +120,13 @@ Sub MultipleYearStockData()
     
         For i = 2 To lastrow_summary_table
         
-            'Find the maximum percent change
+            'The max percent change
             If ws.Cells(i, 11).Value = Application.WorksheetFunction.Max(ws.Range("K2:K" & lastrow_summary_table)) Then
                 ws.Cells(2, 16).Value = ws.Cells(i, 9).Value
                 ws.Cells(2, 17).Value = ws.Cells(i, 11).Value
                 ws.Cells(2, 17).NumberFormat = "0.00%"
 
-            'Find the minimum percent change
+            'The min percent change
             ElseIf ws.Cells(i, 11).Value = Application.WorksheetFunction.Min(ws.Range("K2:K" & lastrow_summary_table)) Then
                 ws.Cells(3, 16).Value = ws.Cells(i, 9).Value
                 ws.Cells(3, 17).Value = ws.Cells(i, 11).Value
